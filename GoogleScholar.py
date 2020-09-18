@@ -124,7 +124,7 @@ def parse_data(html, page_count, detailFlag):
     headers = {
         'user-agent': agent
     }
-    proxies = select_proxy('socks-client')    # 获取代理地址
+    # proxies = select_proxy('socks-client')    # 获取代理地址
     proxies = select_proxy('no')
     # 循环提取每一篇文章的内容
     for i in range(0, 10):

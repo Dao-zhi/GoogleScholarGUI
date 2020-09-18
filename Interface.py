@@ -568,6 +568,7 @@ class Ui_Widget(QtWidgets.QMainWindow):
             print('[config] cookie: {}'.format(cookie))
             print('[config] agent: {}'.format(agent))
             
+        # 如果没有设置随机IP代理池，就从配置文件中读取一个
         if not self.checkBoxIPsFlag.isChecked():
             print('[config] 自定义代理设置:{}'.format(proxy))
         for page_count in range(0, pages):
