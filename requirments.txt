@@ -1,0 +1,6 @@
+requests
+requests[socks]
+lxml
+padas
+retrying
+xlrd
