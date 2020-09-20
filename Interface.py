@@ -567,10 +567,11 @@ class Ui_Widget(QtWidgets.QMainWindow):
             agent = lines[2].replace('\n', '')
             print('[config] cookie: {}'.format(cookie))
             print('[config] agent: {}'.format(agent))
+            # 如果没有设置随机IP代理池，就从配置文件中读取一个
+            if not self.checkBoxIPsFlag.isChecked():
+                print('[config] ips:{}'.format(proxy))
             
-        # 如果没有设置随机IP代理池，就从配置文件中读取一个
-        if not self.checkBoxIPsFlag.isChecked():
-            print('[config] 自定义代理设置:{}'.format(proxy))
+        
         for page_count in range(0, pages):
             # 设置随机agents，随机谷歌域名，IP代理池，这块儿先用不到，以后再开
             # 随机生成UA
@@ -622,7 +623,7 @@ class Ui_Widget(QtWidgets.QMainWindow):
             # 'cookie': cookie,
             'user-agent':agent
             }
-            print('--------------------第{}页数据--------------------'.format(page_count))
+            print('--------------------第{}页数据--------------------'.format(page_count + 1))
             # url = 'https://scholar.google.com.hk/scholar?start=' + str(10*page_count) + '&q=%E2%80%9CEntrepreneurial+failure%E2%80%9D+OR+%E2%80%9Cbusiness+failure%E2%80%9D&hl=zh-CN&as_sdt=1,47&as_ylo=2010&as_vis=1'    # 访问的url
             url = self.url_head + '&start=' + str(10*page_count) + self.url_tail
             self.updated.emit('访问的URL：\n' + url)
