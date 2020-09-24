@@ -560,7 +560,7 @@ class Ui_Widget(QtWidgets.QMainWindow):
         detailFlag = self.checkBoxDetails.isChecked()    # 是否爬取论文详情
         pdfSavePath = self.lineEditPDFSavePath.text()    # PDF下载保存路径
         # 循环提取多页的内容
-        with open('config.txt', 'r', encoding='utf-8') as proxy_file:  # 打开文件
+        with open('./config/config.txt', 'r', encoding='utf-8') as proxy_file:  # 打开文件
             lines = proxy_file.readlines()  # 读取所有行
             proxy = {'https': 'https://' + lines[0].replace('\n', ''),'http': 'http://' + lines[0].replace('\n', '')}
             cookie = lines[1].replace('\n', '')
